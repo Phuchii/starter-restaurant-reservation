@@ -1,3 +1,7 @@
+[Restaurant Reservation Fullstack Web App](https://restaurant-cap-frontend.herokuapp.com/tables/new)
+
+- ### [Express API Back-End Deployment](https://restaurant-reserve-128-backend.herokuapp.com/)
+
 # Capstone: Restaurant Reservation System
 
 > You have been hired as a full stack developer at _Periodic Tables_, a startup that is creating a reservation system for fine dining restaurants.
@@ -7,23 +11,6 @@
 There are no user stories for deployment: it is expected that you will deploy the application to production after you finish a user story.
 
 There are no user stories for logging: it is expected that you will add logging to the application with enough detail to help you diagnose issues in production.
-
-## Existing files
-
-This repository is set up as a *monorepo*, meaning that the frontend and backend projects are in one repository. This allows you to open both projects in the same editor.
-
-As you work through the user stories listed later in this document, you will be writing code that allows your frontend and backend applications to talk to each other. You will also write code to allow your controllers and services to connect to, and query, your PostgreSQL database via [Knex](http://knexjs.org/).
-
-The table below describes the folders in this starter repository:
-
-| Folder/file path | Description                                                      |
-| ---------------- | ---------------------------------------------------------------- |
-| `./back-end`     | The backend project, which runs on `localhost:5000` by default.  |
-| `./front-end`    | The frontend project, which runs on `localhost:3000` by default. |
-
-This starter code closely follows the best practices and patterns established in the Robust Server Structure module.
-
-**Note**: Please do not submit a pull request to this repository with your solution.
 
 ### Backend Existing files
 
@@ -216,8 +203,8 @@ Use in controllers as part of `module.exports`. For example:
 
 ```javascript
 module.exports = {
-	create: asyncErrorBoundary(create)
-}
+  create: asyncErrorBoundary(create),
+};
 ```
 
 ### US-02 Create reservation on a future, working date
@@ -338,7 +325,7 @@ so that I can see which reservation parties are seated, and finished reservation
    - clicking the Finish button associated with the table changes the reservation status to "finished" and removes the reservation from the dashboard.
    - to set the status, PUT to `/reservations/:reservation_id/status` with a body of `{data: { status: "<new-status>" } }` where `<new-status>` is one of booked, seated, or finished
 
-> **Hint** You can add a field to a table in a migration `up` method by defining a new column. E.g. `table.string("last_name", null).notNullable();` will create a new last_name column.  Be sure to remove the column in the `down` function using `dropColumn()`. E.g. `table.dropColumn("last_name");`
+> **Hint** You can add a field to a table in a migration `up` method by defining a new column. E.g. `table.string("last_name", null).notNullable();` will create a new last_name column. Be sure to remove the column in the `down` function using `dropColumn()`. E.g. `table.dropColumn("last_name");`
 
 > **Hint** Use [`Knex.transaction()`](http://knexjs.org/#Transactions) to make sure the `tables` and `reservations` records are always in sync with each other.
 
